@@ -10,6 +10,7 @@ import androidx.fragment.app.FragmentActivity;
 import com.facebook.react.bridge.*;
 import com.facebook.react.modules.core.DeviceEventManagerModule;
 import com.truecaller.android.sdk.oAuth.*;
+import com.google.firebase.crashlytics.FirebaseCrashlytics;
 
 import java.math.BigInteger;
 import java.security.SecureRandom;
@@ -153,7 +154,11 @@ private TcSdkOptions buildSdkOptions(ReadableMap config) {
         public void onActivityResult(Activity activity, int requestCode, int resultCode, Intent data) {
             super.onActivityResult(activity, requestCode, resultCode, data);
             if (requestCode == TcSdk.SHARE_PROFILE_REQUEST_CODE) {
-                TcSdk.getInstance().onActivityResultObtained((FragmentActivity) activity, requestCode, resultCode, data);
+                try {
+                    TcSdk.getInstance().onActivityResultObtained((FragmentActivity) activity, requestCode, resultCode, data);
+                } catch (Exception e) {
+                    FirebaseCrashlytics.getInstance().recordException(e);
+                }
             }
         }
     };
