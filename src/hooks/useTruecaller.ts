@@ -23,6 +23,7 @@ import {
   DEFAULT_BUTTON_TEXT,
   DEFAULT_CONSENT_HEADING,
   DEFAULT_FOOTER_BUTTON_TEXT,
+  DEFAULT_LANGUAGE,
 } from '../constants';
 
 const TruecallerAndroidModule = NativeModules.TruecallerModule;
@@ -59,7 +60,7 @@ export const useTruecaller = (
             config.androidFooterButtonText || DEFAULT_FOOTER_BUTTON_TEXT,
           consentHeading:
             config.androidConsentHeading || DEFAULT_CONSENT_HEADING,
-          languageCode: config.languageCode,
+          languageCode: config.languageCode || DEFAULT_LANGUAGE,
         };
         await TruecallerAndroidModule.initializeSdk(androidConfig);
       } else {

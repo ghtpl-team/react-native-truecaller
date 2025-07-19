@@ -4,6 +4,7 @@ export {
   TRUECALLER_ANDROID_CUSTOMIZATIONS,
   TRUECALLER_ANDROID_EVENTS,
   TRUECALLER_IOS_EVENTS,
+  TRUECALLER_LANGUAGES,
 } from './constants';
 
 export type {
@@ -20,6 +21,6 @@ export type {
   TruecallerFooterButtonTextValue,
   TruecallerConsentHeadingKey,
   TruecallerConsentHeadingValue,
+  TruecallerLanguageKey,
+  TruecallerLanguageValue,
 } from './interfaces';
-
-export { TrueCallerLanguage } from './interfaces';

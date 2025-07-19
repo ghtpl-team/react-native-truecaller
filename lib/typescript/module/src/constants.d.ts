@@ -56,10 +56,27 @@ export declare const TRUECALLER_API_URLS: {
     TOKEN_URL: string;
     USER_INFO_URL: string;
 };
+export declare const TRUECALLER_LANGUAGES: {
+    ENGLISH: string;
+    HINDI: string;
+    MARATHI: string;
+    TELUGU: string;
+    MALAYALAM: string;
+    GUJARATI: string;
+    ORIYA: string;
+    PUNJABI: string;
+    TAMIL: string;
+    BENGALI: string;
+    KANNADA: string;
+    SWAHILI: string;
+    ARABIC: string;
+    URDU: string;
+};
 export declare const DEFAULT_BUTTON_TEXT_COLOR = "#FFFFFF";
 export declare const DEFAULT_BUTTON_COLOR = "#2C765CFF";
 export declare const DEFAULT_BUTTON_TEXT: string;
 export declare const DEFAULT_BUTTON_SHAPE: string;
 export declare const DEFAULT_FOOTER_BUTTON_TEXT: string;
 export declare const DEFAULT_CONSENT_HEADING: string;
+export declare const DEFAULT_LANGUAGE: string;
 //# sourceMappingURL=constants.d.ts.map

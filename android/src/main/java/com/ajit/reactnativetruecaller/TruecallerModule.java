@@ -56,6 +56,16 @@ public class TruecallerModule extends ReactContextBaseJavaModule {
         try {
             TcSdkOptions sdkOptions = buildSdkOptions(config);
             TcSdk.init(sdkOptions);
+
+            // Set locale after building the options
+            if (config.hasKey("languageCode")) {
+                String languageCode = config.getString("languageCode");
+                if (languageCode != null && !languageCode.isEmpty()) {
+                    Locale locale = new Locale(languageCode);
+                    TcSdk.getInstance().setLocale(locale);
+                }
+            }
+
         } catch (Exception e) {
             emitErrorEvent(e.getMessage());
         }
@@ -124,15 +134,6 @@ private TcSdkOptions buildSdkOptions(ReadableMap config) {
     }
 
     TcSdkOptions sdkOptions = sdkOptionsBuilder.build();
-
-    // Set locale after building the options
-    if (config.hasKey("languageCode")) {
-        String languageCode = config.getString("languageCode");
-        if (languageCode != null && !languageCode.isEmpty()) {
-            Locale locale = new Locale(languageCode);
-            TcSdk.getInstance().setLocale(locale);
-        }
-    }
 
     return sdkOptions;
 }

@@ -1,5 +1,5 @@
 import { type ColorValue } from 'react-native';
-import type { TRUECALLER_ANDROID_CUSTOMIZATIONS } from './constants';
+import type { TRUECALLER_ANDROID_CUSTOMIZATIONS, TRUECALLER_LANGUAGES } from './constants';
 /**
  * Type for Button Text Customizations
  */
@@ -20,22 +20,8 @@ export type TruecallerFooterButtonTextValue = (typeof TRUECALLER_ANDROID_CUSTOMI
  */
 export type TruecallerConsentHeadingKey = keyof typeof TRUECALLER_ANDROID_CUSTOMIZATIONS.CONSENT_HEADINGS;
 export type TruecallerConsentHeadingValue = (typeof TRUECALLER_ANDROID_CUSTOMIZATIONS.CONSENT_HEADINGS)[TruecallerConsentHeadingKey];
-export declare enum TrueCallerLanguage {
-    ENGLISH = "en",
-    HINDI = "hi",
-    MARATHI = "mr",
-    TELUGU = "te",
-    MALAYALAM = "ml",
-    GUJARATI = "gu",
-    ORIYA = "or",
-    PUNJABI = "pa",
-    TAMIL = "ta",
-    BENGALI = "bn",
-    KANNADA = "kn",
-    SWAHILI = "sw",
-    ARABIC = "ar",
-    URDU = "ur"
-}
+export type TruecallerLanguageKey = keyof typeof TRUECALLER_LANGUAGES;
+export type TruecallerLanguageValue = (typeof TRUECALLER_LANGUAGES)[TruecallerLanguageKey];
 /**
  * Configuration interface for initializing Truecaller
  */
@@ -59,7 +45,7 @@ export interface TruecallerConfig {
     /** Heading text for the consent screen on Android */
     androidConsentHeading?: TruecallerConsentHeadingValue;
     /** Language Code for the consent screen on Android */
-    languageCode?: TrueCallerLanguage;
+    languageCode?: TruecallerLanguageValue;
     /** Custom handler for Android success events if you want to handle them yourself */
     androidSuccessHandler?: (data: TruecallerAndroidResponse) => void;
 }

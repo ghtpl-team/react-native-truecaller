@@ -75,6 +75,23 @@ export const TRUECALLER_API_URLS = {
   USER_INFO_URL: 'https://oauth-account-noneu.truecaller.com/v1/userinfo',
 };
 
+export const TRUECALLER_LANGUAGES = {
+  ENGLISH: 'en',
+  HINDI: 'hi',
+  MARATHI: 'mr',
+  TELUGU: 'te',
+  MALAYALAM: 'ml',
+  GUJARATI: 'gu',
+  ORIYA: 'or',
+  PUNJABI: 'pa',
+  TAMIL: 'ta',
+  BENGALI: 'bn',
+  KANNADA: 'kn',
+  SWAHILI: 'sw',
+  ARABIC: 'ar',
+  URDU: 'ur',
+};
+
 export const DEFAULT_BUTTON_TEXT_COLOR = '#FFFFFF';
 export const DEFAULT_BUTTON_COLOR = '#2C765CFF';
 export const DEFAULT_BUTTON_TEXT =
@@ -85,3 +102,4 @@ export const DEFAULT_FOOTER_BUTTON_TEXT =
   TRUECALLER_ANDROID_CUSTOMIZATIONS.FOOTER_TEXTS.ANOTHER_METHOD;
 export const DEFAULT_CONSENT_HEADING =
   TRUECALLER_ANDROID_CUSTOMIZATIONS.CONSENT_HEADINGS.SIGN_UP_WITH;
+export const DEFAULT_LANGUAGE = TRUECALLER_LANGUAGES.ENGLISH;
