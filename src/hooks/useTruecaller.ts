@@ -259,6 +259,20 @@ export const useTruecaller = (
     }
   }, [isTruecallerInitialized, config]);
 
+  const clearTruecallerSDK = useCallback(() => {
+    try {
+      if (Platform.OS === 'android') {
+        TruecallerAndroidModule.clearSdk();
+        setIsTruecallerInitialized(false);
+        setUserProfile(null);
+        setError(null);
+      }
+      // iOS doesn't require explicit cleanup
+    } catch (err) {
+      setError((err as Error).message);
+    }
+  }, []);
+
   return {
     userProfile,
     error,
@@ -266,5 +280,6 @@ export const useTruecaller = (
     initializeTruecallerSDK,
     isSdkUsable,
     openTruecallerForVerification,
+    clearTruecallerSDK,
   };
 };

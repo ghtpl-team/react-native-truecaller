@@ -292,4 +292,23 @@ private TcSdkOptions buildSdkOptions(ReadableMap config) {
     public void removeListeners(Integer count) {
         // Keep: Required for RN built in Event Emitter Calls.
     }
+
+    @ReactMethod
+    public void clearSdk() {
+        try {
+            TcSdk.clear();
+        } catch (Exception e) {
+            emitErrorEvent("Failed to clear SDK: " + e.getMessage());
+        }
+    }
+
+    @Override
+    public void onCatalystInstanceDestroy() {
+        super.onCatalystInstanceDestroy();
+        try {
+            TcSdk.clear();
+        } catch (Exception e) {
+            // Log error but don't emit event as React context may be destroyed
+        }
+    }
 }

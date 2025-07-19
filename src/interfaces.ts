@@ -117,4 +117,6 @@ export interface UseTruecallerResult {
   initializeTruecallerSDK: () => Promise<void>;
   isSdkUsable: () => boolean;
   openTruecallerForVerification: () => Promise<void>;
+  /** Clear Truecaller SDK resources (Android only) */
+  clearTruecallerSDK: () => void;
 }
