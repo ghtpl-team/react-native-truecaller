@@ -156,6 +156,7 @@ private TcSdkOptions buildSdkOptions(ReadableMap config) {
                 try {
                     TcSdk.getInstance().onActivityResultObtained((FragmentActivity) activity, requestCode, resultCode, data);
                 } catch (Exception e) {
+                    emitErrorEvent(e.getMessage())
                 }
             }
         }
