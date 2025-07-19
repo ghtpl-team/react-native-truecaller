@@ -70,22 +70,6 @@ export const TRUECALLER_ANDROID_CUSTOMIZATIONS = {
   },
 };
 
-// Additional Constants for Supported Languages
-export const TRUECALLER_LANGUAGES = {
-  ENGLISH: 'en',
-  HINDI: 'hi',
-  MARATHI: 'mr',
-  TELUGU: 'te',
-  MALAYALAM: 'ml',
-  URDU: 'ur',
-  PUNJABI: 'pa',
-  TAMIL: 'ta',
-  BENGALI: 'bn',
-  KANNADA: 'kn',
-  SWAHILI: 'sw',
-  ARABIC: 'ar',
-};
-
 export const TRUECALLER_API_URLS = {
   TOKEN_URL: 'https://oauth-account-noneu.truecaller.com/v1/token',
   USER_INFO_URL: 'https://oauth-account-noneu.truecaller.com/v1/userinfo',

@@ -32,6 +32,22 @@ export type TruecallerConsentHeadingKey =
   keyof typeof TRUECALLER_ANDROID_CUSTOMIZATIONS.CONSENT_HEADINGS;
 export type TruecallerConsentHeadingValue =
   (typeof TRUECALLER_ANDROID_CUSTOMIZATIONS.CONSENT_HEADINGS)[TruecallerConsentHeadingKey];
+export enum TrueCallerLanguage {
+  ENGLISH = 'en',
+  HINDI = 'hi',
+  MARATHI = 'mr',
+  TELUGU = 'te',
+  MALAYALAM = 'ml',
+  GUJARATI = 'gu',
+  ORIYA = 'or',
+  PUNJABI = 'pa',
+  TAMIL = 'ta',
+  BENGALI = 'bn',
+  KANNADA = 'kn',
+  SWAHILI = 'sw',
+  ARABIC = 'ar',
+  URDU = 'ur',
+}
 
 /**
  * Configuration interface for initializing Truecaller
@@ -55,6 +71,8 @@ export interface TruecallerConfig {
   androidFooterButtonText?: TruecallerFooterButtonTextValue;
   /** Heading text for the consent screen on Android */
   androidConsentHeading?: TruecallerConsentHeadingValue;
+  /** Language Code for the consent screen on Android */
+  languageCode?: TrueCallerLanguage;
   /** Custom handler for Android success events if you want to handle them yourself */
   androidSuccessHandler?: (data: TruecallerAndroidResponse) => void;
 }

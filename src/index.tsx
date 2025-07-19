@@ -4,11 +4,11 @@ export {
   TRUECALLER_ANDROID_CUSTOMIZATIONS,
   TRUECALLER_ANDROID_EVENTS,
   TRUECALLER_IOS_EVENTS,
-  TRUECALLER_LANGUAGES,
 } from './constants';
 
 export type {
   TruecallerConfig,
+  TrueCallerLanguage,
   TruecallerUserProfile,
   TruecallerAndroidResponse,
   TruecallerIOSResponse,

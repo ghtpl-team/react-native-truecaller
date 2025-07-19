@@ -59,6 +59,7 @@ export const useTruecaller = (
             config.androidFooterButtonText || DEFAULT_FOOTER_BUTTON_TEXT,
           consentHeading:
             config.androidConsentHeading || DEFAULT_CONSENT_HEADING,
+          languageCode: config.languageCode,
         };
         await TruecallerAndroidModule.initializeSdk(androidConfig);
       } else {

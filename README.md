@@ -1,6 +1,5 @@
 # @ajitpatel28/react-native-truecaller
 
-
 React Native library for seamless Truecaller integration, supporting Android SDK v3.0.1 and iOS SDK v0.1.8
 
 ###### Note: Ios stil need fixes, will be updating soon, any contributions are welcomed.
@@ -60,14 +59,15 @@ Replace `{YOUR_APP_ID}` with your actual Truecaller App ID.
 ```
 
 5. Add the associated domain provided by Truecaller:
-  - In Xcode, go to your project's target
-  - Select the "Signing & Capabilities" tab
-  - Click on "+ Capability" and add "Associated Domains"
-  - Add the domain provided by Truecaller with the "applinks:" prefix
 
-   For example: `applinks:your-provided-domain.com`
+- In Xcode, go to your project's target
+- Select the "Signing & Capabilities" tab
+- Click on "+ Capability" and add "Associated Domains"
+- Add the domain provided by Truecaller with the "applinks:" prefix
 
-   Note: Do not include "http://" or "https://" in the domain.
+For example: `applinks:your-provided-domain.com`
+
+Note: Do not include "http://" or "https://" in the domain.
 
 ### Android Setup
 
@@ -185,7 +185,6 @@ import {
   TRUECALLER_ANDROID_CUSTOMIZATIONS,
   TRUECALLER_ANDROID_EVENTS,
   TRUECALLER_IOS_EVENTS,
-  TRUECALLER_LANGUAGES,
 } from '@ajitpatel28/react-native-truecaller';
 ```
 
@@ -211,6 +210,6 @@ MIT
 
 ---
 
-Made with ❤️ by 
+Made with ❤️ by
 [Ajit Patel](https://github.com/ajitpatel28)
 [Arun Lodhi](https://github.com/arunlodhi)
