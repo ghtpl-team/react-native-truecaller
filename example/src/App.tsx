@@ -4,7 +4,7 @@ import { StyleSheet, View, Text, Pressable } from 'react-native';
 import {
   TRUECALLER_ANDROID_CUSTOMIZATIONS,
   useTruecaller,
-} from '@ajitpatel28/react-native-truecaller';
+} from '@ghtpl-team/react-native-truecaller';
 
 export default function App() {
   const truecallerConfig = {

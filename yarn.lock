@@ -5,24 +5,6 @@ __metadata:
   version: 6
   cacheKey: 8
 
-"@ajitpatel28/react-native-truecaller-example@workspace:example":
-  version: 0.0.0-use.local
-  resolution: "@ajitpatel28/react-native-truecaller-example@workspace:example"
-  dependencies:
-    "@babel/core": ^7.20.0
-    "@babel/preset-env": ^7.20.0
-    "@babel/runtime": ^7.20.0
-    "@react-native/babel-preset": 0.75.2
-    "@react-native/metro-config": 0.75.2
-    "@react-native/typescript-config": 0.75.2
-    "@rnx-kit/metro-config": ^2.0.0
-    react: 18.3.1
-    react-native: 0.75.2
-    react-native-builder-bob: ^0.30.2
-    react-native-test-app: ^3.10.5
-  languageName: unknown
-  linkType: soft
-
 "@ampproject/remapping@npm:^2.2.0":
   version: 2.3.0
   resolution: "@ampproject/remapping@npm:2.3.0"
@@ -1887,6 +1869,24 @@ __metadata:
   checksum: 2afb77454c06e8316793d2e8e79a0154854d35e6782a1217da274ca60b5044d2c69d6091155234ed0551a1e408f86f09dd4ece02752c59568fa403e60611e880
   languageName: node
   linkType: hard
+
+"@ghtpl-team/react-native-truecaller-example@workspace:example":
+  version: 0.0.0-use.local
+  resolution: "@ghtpl-team/react-native-truecaller-example@workspace:example"
+  dependencies:
+    "@babel/core": ^7.20.0
+    "@babel/preset-env": ^7.20.0
+    "@babel/runtime": ^7.20.0
+    "@react-native/babel-preset": 0.75.2
+    "@react-native/metro-config": 0.75.2
+    "@react-native/typescript-config": 0.75.2
+    "@rnx-kit/metro-config": ^2.0.0
+    react: 18.3.1
+    react-native: 0.75.2
+    react-native-builder-bob: ^0.30.2
+    react-native-test-app: ^3.10.5
+  languageName: unknown
+  linkType: soft
 
 "@ghtpl-team/react-native-truecaller@workspace:.":
   version: 0.0.0-use.local

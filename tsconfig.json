@@ -2,14 +2,18 @@
   "compilerOptions": {
     "rootDir": ".",
     "paths": {
-      "@ajitpatel28/react-native-truecaller": ["./src/index"]
+      "@ghtpl-team/react-native-truecaller": [
+        "./src/index"
+      ]
     },
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "jsx": "react-jsx",
-    "lib": ["ESNext"],
+    "lib": [
+      "ESNext"
+    ],
     "module": "ESNext",
     "moduleResolution": "Bundler",
     "noEmit": true,
@@ -26,5 +30,7 @@
     "target": "ESNext",
     "verbatimModuleSyntax": true
   },
-  "include": ["src/**/*"]
+  "include": [
+    "src/**/*"
+  ]
 }

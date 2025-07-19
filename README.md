@@ -29,7 +29,7 @@ To generate a client ID, follow the instructions in the [Truecaller IOS Guide](h
 1. Add the following to your `Podfile`:
 
 ```ruby
-pod '@ajitpatel28/react-native-truecaller', :path => '../node_modules/@ajitpatel28/react-native-truecaller'
+pod '@ghtpl-team/react-native-truecaller', :path => '../node_modules/@ghtpl-team/react-native-truecaller'
 ```
 
 2. Run `pod install` in your iOS directory.
@@ -94,7 +94,7 @@ Replace `YOUR_CLIENT_ID` with your actual Truecaller client ID.
 ```typescript
 import React, { useEffect } from 'react';
 import { View, Button } from 'react-native';
-import { useTruecaller } from '@ajitpatel28/react-native-truecaller';
+import { useTruecaller } from '@ghtpl-team/react-native-truecaller';
 const TruecallerLoginComponent = () => {
   const {
     initializeTruecallerSDK,
@@ -211,4 +211,6 @@ MIT
 
 ---
 
-Made with ❤️ by [Ajit Patel](https://github.com/ajitpatel28) and [create-react-native-library](https://github.com/callstack/react-native-builder-bob)
+Made with ❤️ by 
+[Ajit Patel](https://github.com/ajitpatel28)
+[Arun Lodhi](https://github.com/arunlodhi)
