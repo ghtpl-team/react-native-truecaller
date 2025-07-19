@@ -8,7 +8,6 @@ export {
 
 export type {
   TruecallerConfig,
-  TrueCallerLanguage,
   TruecallerUserProfile,
   TruecallerAndroidResponse,
   TruecallerIOSResponse,
@@ -22,3 +21,5 @@ export type {
   TruecallerConsentHeadingKey,
   TruecallerConsentHeadingValue,
 } from './interfaces';
+
+export { TrueCallerLanguage } from './interfaces';
