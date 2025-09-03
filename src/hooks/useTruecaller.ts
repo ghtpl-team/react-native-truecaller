@@ -64,7 +64,12 @@ export const useTruecaller = (
         };
         await TruecallerAndroidModule.initializeSdk(androidConfig);
       } else {
-        await TruecallerIOS.initializeSdk(config);
+        // Pass the full config including OAuth scopes to iOS
+        const iosConfig = {
+          ...config,
+          oauthScopes: config.oauthScopes || ['profile', 'phone'],
+        };
+        await TruecallerIOS.initializeSdk(iosConfig);
       }
       setIsTruecallerInitialized(true);
       setError(null);
@@ -245,7 +250,9 @@ export const useTruecaller = (
         if (!config.androidClientId) {
           throw new Error('Android client ID is required for Android platform');
         }
-        await TruecallerAndroidModule.requestAuthorizationCode();
+        // Use provided OAuth scopes or default to ["profile", "phone"]
+        const oauthScopes = config.oauthScopes || ['profile', 'phone'];
+        await TruecallerAndroidModule.requestAuthorizationCode(oauthScopes);
       } else {
         if (!config.iosAppKey || !config.iosAppLink) {
           throw new Error(

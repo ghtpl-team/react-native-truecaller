@@ -91,10 +91,13 @@ Replace `YOUR_CLIENT_ID` with your actual Truecaller client ID.
 
 ## Usage
 
+### Basic Usage
+
 ```typescript
 import React, { useEffect } from 'react';
 import { View, Button } from 'react-native';
 import { useTruecaller } from '@ghtpl-team/react-native-truecaller';
+
 const TruecallerLoginComponent = () => {
   const {
     initializeTruecallerSDK,
@@ -106,19 +109,23 @@ const TruecallerLoginComponent = () => {
     androidClientId: 'YOUR_ANDROID_CLIENT_ID',
     iosAppKey: 'YOUR_IOS_APP_KEY',
     iosAppLink: 'YOUR_IOS_APP_LINK',
+    // OAuth scopes - specify which data you want to access
+    oauthScopes: ['profile', 'phone'], // Default scopes
     androidSuccessHandler: handleBackendValidation,
   });
+
   useEffect(() => {
-// Initialize the Truecaller SDK when the component mounts
+    // Initialize the Truecaller SDK when the component mounts
     initializeTruecallerSDK();
   }, []);
+
   const handleTruecallerLogin = async () => {
     try {
       await openTruecallerForVerification();
-// The userProfile will be updated automatically if verification is successful
+      // The userProfile will be updated automatically if verification is successful
     } catch (err) {
       console.error('Truecaller login error:', err);
-// Handle error
+      // Handle error
     }
   };
 
@@ -129,23 +136,56 @@ const TruecallerLoginComponent = () => {
   useEffect(() => {
     if (userProfile) {
       console.log('Truecaller profile:', userProfile);
-// Handle successful login, e.g., navigate to a new screen or update app state
+      // Handle successful login, e.g., navigate to a new screen or update app state
     }
   }, [userProfile]);
+
   useEffect(() => {
     if (error) {
       console.error('Truecaller error:', error);
-// Handle error, e.g., show an error message to the user
+      // Handle error, e.g., show an error message to the user
     }
   }, [error]);
+
   return (
     <View>
       <Button title="Login with Truecaller" onPress={handleTruecallerLogin} />
-  </View>
-);
+    </View>
+  );
 };
+
 export default TruecallerLoginComponent;
 ```
+
+### OAuth Scopes Usage
+
+You can specify which data you want to access from Truecaller by setting the `oauthScopes` property:
+
+```typescript
+// Request only profile and phone (default)
+const config = {
+  androidClientId: 'YOUR_ANDROID_CLIENT_ID',
+  oauthScopes: ['profile', 'phone'],
+};
+
+// Request profile, phone, and email
+const configWithEmail = {
+  androidClientId: 'YOUR_ANDROID_CLIENT_ID',
+  oauthScopes: ['profile', 'phone', 'email'],
+};
+
+// Use the configuration with useTruecaller hook
+const { initializeTruecallerSDK, openTruecallerForVerification } =
+  useTruecaller(config);
+```
+
+**Available OAuth Scopes:**
+
+- `"profile"`: Access to user's name and basic profile information
+- `"phone"`: Access to user's phone number and country code
+- `"email"`: Access to user's email address (if available)
+
+**Note:** OAuth scopes are currently fully supported on Android only. The iOS implementation accepts the `oauthScopes` configuration for future compatibility, but the current iOS TrueSDK doesn't support OAuth scopes configuration. The iOS implementation will log the requested scopes and is prepared for when the iOS SDK adds OAuth scopes support.
 
 ## API
 
@@ -165,6 +205,7 @@ A custom hook that provides access to Truecaller functionality.
   - `androidButtonText`: (optional) Text displayed on the Truecaller button on Android
   - `androidFooterButtonText`: (optional) Text displayed on the footer button on Android
   - `androidConsentHeading`: (optional) Heading text for the consent screen on Android
+  - `oauthScopes`: (optional) Array of OAuth scopes for Truecaller SDK (Android only). Defaults to `["profile", "phone"]`. Available scopes: `"profile"`, `"phone"`, `"email"`
   - `androidSuccessHandler`: (optional) Callback function invoked on Android when Truecaller succeeds with a response. It receives a parameter of type `TruecallerAndroidResponse` containing the success data. Pass this function if you want to do server side validation of the Truecaller response.
 
 #### Returns

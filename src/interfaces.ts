@@ -64,6 +64,8 @@ export interface TruecallerConfig {
   androidConsentHeading?: TruecallerConsentHeadingValue;
   /** Language Code for the consent screen on Android */
   languageCode?: TruecallerLanguageValue;
+  /** OAuth scopes for Truecaller SDK (Android only). Defaults to ["profile", "phone"] */
+  oauthScopes?: string[];
   /** Custom handler for Android success events if you want to handle them yourself */
   androidSuccessHandler?: (data: TruecallerAndroidResponse) => void;
 }

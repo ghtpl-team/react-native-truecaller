@@ -72,7 +72,7 @@ public class TruecallerModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void requestAuthorizationCode() {
+    public void requestAuthorizationCode(ReadableArray scopes) {
         try {
             Activity currentActivity = getCurrentActivity();
             if (currentActivity == null) {
@@ -86,8 +86,20 @@ public class TruecallerModule extends ReactContextBaseJavaModule {
             String state = generateOAuthState();
             String codeChallenge = generateCodeChallenge();
 
+            // Convert ReadableArray to String array
+            String[] scopesArray;
+            if (scopes != null && scopes.size() > 0) {
+                scopesArray = new String[scopes.size()];
+                for (int i = 0; i < scopes.size(); i++) {
+                    scopesArray[i] = scopes.getString(i);
+                }
+            } else {
+                // Default scopes if none provided
+                scopesArray = new String[]{"profile", "phone"};
+            }
+
             TcSdk.getInstance().setOAuthState(state);
-            TcSdk.getInstance().setOAuthScopes(new String[]{"profile", "phone", "email"});
+            TcSdk.getInstance().setOAuthScopes(scopesArray);
             TcSdk.getInstance().setCodeChallenge(codeChallenge);
             TcSdk.getInstance().getAuthorizationCode((FragmentActivity) currentActivity);
         } catch (Exception e) {

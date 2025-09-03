@@ -21,6 +21,29 @@ RCT_EXPORT_BLOCKING_SYNCHRONOUS_METHOD(isSupported) {
     }
 }
 
+RCT_EXPORT_METHOD(initializeSdk:(NSDictionary *)config) {
+    NSString *appKey = config[@"iosAppKey"];
+    NSString *appLink = config[@"iosAppLink"];
+    NSArray *oauthScopes = config[@"oauthScopes"];
+    
+    if ([[TCTrueSDK sharedManager] isSupported]) {
+        [[TCTrueSDK sharedManager] setupWithAppKey:appKey appLink:appLink];
+        [TCTrueSDK sharedManager].delegate = self;
+        
+        // Store OAuth scopes for future use (iOS TrueSDK doesn't currently support OAuth scopes like Android)
+        // This is prepared for future compatibility when iOS SDK supports OAuth scopes
+        if (oauthScopes && [oauthScopes isKindOfClass:[NSArray class]]) {
+            // Log the requested scopes for debugging
+            NSLog(@"Truecaller iOS: Requested OAuth scopes: %@", oauthScopes);
+            // Note: Current iOS TrueSDK doesn't support OAuth scopes configuration
+            // This will be ready when iOS SDK adds OAuth scopes support
+        }
+    } else {
+        [self sendTruecallerFailureEvent:0 message:@"Please make sure you have truecaller app installed on your device."];
+    }
+}
+
+// Keep the old method for backward compatibility
 RCT_EXPORT_METHOD(initialize:(NSString *)appKey appLink:(NSString *)appLink) {
     if ([[TCTrueSDK sharedManager] isSupported]) {
         [[TCTrueSDK sharedManager] setupWithAppKey:appKey appLink:appLink];
@@ -30,6 +53,13 @@ RCT_EXPORT_METHOD(initialize:(NSString *)appKey appLink:(NSString *)appLink) {
     }
 }
 
+RCT_EXPORT_METHOD(requestTrueProfile) {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [[TCTrueSDK sharedManager] requestTrueProfile];
+    });
+}
+
+// Keep the old method for backward compatibility
 RCT_EXPORT_METHOD(requestProfile) {
     dispatch_async(dispatch_get_main_queue(), ^{
         [[TCTrueSDK sharedManager] requestTrueProfile];
