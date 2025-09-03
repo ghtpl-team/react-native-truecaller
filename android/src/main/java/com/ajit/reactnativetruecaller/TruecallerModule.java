@@ -76,7 +76,7 @@ public class TruecallerModule extends ReactContextBaseJavaModule {
         try {
             Activity currentActivity = getCurrentActivity();
             if (currentActivity == null) {
-                emitErrorError("Current activity is null");
+                emitErrorEvent("Current activity is null");
                 return;
             }
             if (!(currentActivity instanceof FragmentActivity)) {
