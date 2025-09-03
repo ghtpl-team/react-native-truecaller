@@ -72,20 +72,11 @@ public class TruecallerModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void requestAuthorizationCode() {
-        requestAuthorizationCodeWithScopes(null);
-    }
-
-    @ReactMethod
-    public void requestAuthorizationCode(ReadableArray scopes) {
-        requestAuthorizationCodeWithScopes(scopes);
-    }
-
-    private void requestAuthorizationCodeWithScopes(ReadableArray scopes) {
+    public void requestAuthorizationCode(@Nullable ReadableArray scopes) {
         try {
             Activity currentActivity = getCurrentActivity();
             if (currentActivity == null) {
-                emitErrorEvent("Current activity is null");
+                emitErrorError("Current activity is null");
                 return;
             }
             if (!(currentActivity instanceof FragmentActivity)) {
