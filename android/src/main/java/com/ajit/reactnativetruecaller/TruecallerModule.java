@@ -72,7 +72,16 @@ public class TruecallerModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
+    public void requestAuthorizationCode() {
+        requestAuthorizationCodeWithScopes(null);
+    }
+
+    @ReactMethod
     public void requestAuthorizationCode(ReadableArray scopes) {
+        requestAuthorizationCodeWithScopes(scopes);
+    }
+
+    private void requestAuthorizationCodeWithScopes(ReadableArray scopes) {
         try {
             Activity currentActivity = getCurrentActivity();
             if (currentActivity == null) {
