@@ -71,14 +71,14 @@ RCT_EXPORT_METHOD(requestProfile) {
     return [[TCTrueSDK sharedManager] application:[UIApplication sharedApplication] continueUserActivity:userActivity restorationHandler:restorationHandler];
 }
 
-- (void)didReceiveTrueProfileResponse:(TCTrueProfileResponse *)profileResponse {
+- (void)didReceiveTrueProfile:(TCTrueProfile *)profileResponse {
     NSDictionary *profileData = @{
-        @"firstName": profileResponse.profile.firstName ?: [NSNull null],
-        @"lastName": profileResponse.profile.lastName ?: [NSNull null],
-        @"email": profileResponse.profile.email ?: [NSNull null],
-        @"phoneNumber": profileResponse.profile.phoneNumber ?: [NSNull null],
-        @"countryCode": profileResponse.profile.countryCode ?: [NSNull null],
-        @"gender": profileResponse.profile.gender ?: [NSNull null],
+        @"firstName": profileResponse.firstName ?: [NSNull null],
+        @"lastName": profileResponse.lastName ?: [NSNull null],
+        @"email": profileResponse.email ?: [NSNull null],
+        @"phoneNumber": profileResponse.phoneNumber ?: [NSNull null],
+        @"countryCode": profileResponse.countryCode ?: [NSNull null],
+        @"gender": profileResponse.gender ?: [NSNull null],
     };
 
     [self sendEventWithName:@"TruecallerIOSSuccess" body:profileData];
